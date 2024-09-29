@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import InicioPag from './InicioPag';
 import logo from '/src/imagenes/logo.png';
 import Login from './Login';
+import RegistroUsuarios from '../interfacesAdmin/RegistroUsuarios';
 
 function Menu() {
     return (
@@ -13,9 +14,10 @@ function Menu() {
                 <span className="text-black">ProSalud UroGénica S.A.</span>
               </div>
               <nav className="flex space-x-8">
-              <Link to="/" className="text-white text-lg font-bold">Inicio Pagina</Link>
+              <Link to="/" className="text-white text-lg font-bold">Inicio</Link>
                 {/*<Link to="/orden-medica" className="text-white text-lg font-bold">Orden Medica</Link>*/}
                 <Link to="/login" className="text-white text-lg font-bold">Inicio Sesión</Link>
+                <Link to="/registroUsuarios" className="text-white text-lg font-bold">Registro Usuarios</Link>
               </nav>
             </header>
     
@@ -23,6 +25,7 @@ function Menu() {
               <Route path="/" element={<InicioPag />} />
               {/*<Route path="/orden-medica" element={<OrdenMedica />} />*/}
               <Route path="/login" element={<Login />} />
+              <Route path="/registroUsuarios" element={<RegistroUsuarios />} />
             </Routes>
     
             <footer className="p-4 bg-[#1a8b9e] text-white text-xs flex justify-around items-center">
