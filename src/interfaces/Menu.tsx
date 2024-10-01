@@ -3,7 +3,7 @@ import InicioPag from './InicioPag';
 import logo from '/src/imagenes/logo.png';
 import Login from './Login';
 import RegistroUsuarios from '../interfacesAdmin/RegistroUsuarios';
-
+import HistoriaMedica from '../interfacesDoctor/HistoriaMedica';
 function Menu() {
     return (
         <Router>
@@ -15,7 +15,7 @@ function Menu() {
               </div>
               <nav className="flex space-x-8">
               <Link to="/" className="text-white text-lg font-bold">Inicio</Link>
-                {/*<Link to="/orden-medica" className="text-white text-lg font-bold">Orden Medica</Link>*/}
+                <Link to="/historia-medica" className="text-white text-lg font-bold">Historia Medica</Link>
                 <Link to="/login" className="text-white text-lg font-bold">Inicio Sesión</Link>
                 <Link to="/registroUsuarios" className="text-white text-lg font-bold">Registro Usuarios</Link>
               </nav>
@@ -23,7 +23,7 @@ function Menu() {
     
             <Routes>
               <Route path="/" element={<InicioPag />} />
-              {/*<Route path="/orden-medica" element={<OrdenMedica />} />*/}
+              <Route path="/historia-medica" element={<HistoriaMedica />} />
               <Route path="/login" element={<Login />} />
               <Route path="/registroUsuarios" element={<RegistroUsuarios />} />
             </Routes>
