@@ -5,7 +5,7 @@ import Imagen2 from '/src/imagenes/imagen2.jpg';
 import { Link } from 'react-router-dom';
 import LOGO from '/src/imagenes/logo.png';
 import FOTO from '/src/imagenes/histclic.jpg';
-function InicioPagina() {
+function Inicioperador() {
   // Lista de imágenes del carrusel
   const images = [Bienvenida, Imagen1, Imagen2 ];
   
@@ -39,9 +39,9 @@ function InicioPagina() {
           <span className="text-white text-lg font-bold">ProSalud UroGénica S.A.</span>
         </div>
         <nav className="flex space-x-8">
-          <Link to="/" className="text-white text-lg font-bold">Inicio</Link>
-          <Link to="/login" className="text-white text-lg font-bold">Inicio Sesión</Link>
-          <Link to="/registroUsuarios" className="text-white text-lg font-bold">Registro Usuarios</Link>
+        <Link to="/" className="text-white text-lg font-bold">Inicio</Link>
+          <Link to="/agendar" className="text-white text-lg font-bold">Agendar Cita </Link>
+         
           <Link to="/contacto" className="text-white text-lg font-bold">Contactanos</Link>
         </nav>
       </header>
@@ -86,7 +86,7 @@ function InicioPagina() {
             </div>
             {/* Imagen grande */}
             <div className="w-full lg:w-1/2 mt-8 lg:mt-0">
-              <img src= {FOTO} alt="Doctor with stethoscope" className="rounded-lg shadow-md hover:shadow-xl transition duration-300 w-full" />
+              <img src={FOTO} alt="Doctor with stethoscope" className="rounded-lg shadow-md hover:shadow-xl transition duration-300 w-full" />
             </div>
           </div>
         </section>
@@ -146,4 +146,4 @@ function InicioPagina() {
   );
 }
 
-export default InicioPagina;
+export default Inicioperador;
