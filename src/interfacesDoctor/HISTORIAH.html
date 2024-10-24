@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Historia Clínica</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Asegura que los botones se oculten completamente durante la impresión */
+        @media print {
+            .no-print {
+                display: none !important; /* Fuerza que no se muestren al imprimir */
+                visibility: hidden; /* Asegura que sean invisibles si la propiedad anterior no funciona */
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-100 p-8">
+    <div class="max-w-4xl mx-auto bg-white p-8 border border-gray-300">
+        <div class="flex flex-col items-center mb-8">
+            <img
+                alt="Sanavit logo"
+                class="w-28 mr-4"
+                src="https://placehold.co/100x100"
+            />
+        </div>
+        <h2 class="text-center text-xl font-bold mb-4">HISTORIA CLÍNICA</h2>
+        <div class="border border-gray-300 p-4 mb-4">
+            <h3 class="font-bold mb-2">DATOS DEL PACIENTE</h3>
+            <div class="grid grid-cols-2 gap-4">
+                <div>
+                    <p><span class="font-bold">Identificación</span>: C.C 100000001</p>
+                    <p><span class="font-bold">Nombre</span>: John Alexander Jiménez Vargas</p>
+                </div>
+                <div>
+                    <p><span class="font-bold">Sexo</span>: MASCULINO</p>
+                    <p><span class="font-bold">Edad</span>: 24</p>
+                </div>
+                <div>
+                    <p><span class="font-bold">Fecha de Nacimiento</span>: 31-02-2000</p>
+                </div>
+                <div>
+                    <p><span class="font-bold">Discapacidades</span>: No</p>
+                </div>
+            </div>
+        </div>
+        <div class="border border-gray-300 p-4 mb-4">
+            <h3 class="font-bold mb-2">CONSULTA</h3>
+            <div class="grid grid-cols-2 gap-4">
+                <div>
+                    <p><span class="font-bold">Profesional</span>: Juan Carlos Sainz Pico</p>
+                    <p><span class="font-bold">Especialidad</span>: Fisioterapia</p>
+                    <p><span class="font-bold">Motivo de consulta</span>: Dolor en el tobillo.</p>
+                </div>
+                <div>
+                    <p><span class="font-bold">Fecha</span>: 26-03-2024</p>
+                    <p><span class="font-bold">Hora</span>: 6:15 pm</p>
+                    <p><span class="font-bold">Sede</span>: Bucaramanga Cra 01#1029</p>
+                </div>
+            </div>
+            <p class="mt-4">
+                <span class="font-bold">Descripción</span>: El paciente acude a consulta por presentar dolor en el tobillo derecho, el cual ha persistido durante las últimas dos semanas. Refiere que el dolor inició de manera gradual tras un esguince leve sufrido mientras realizaba una actividad física (correr/jugar fútbol).
+            </p>
+        </div>
+        <div class="border border-gray-300 p-4 mb-4">
+            <h3 class="font-bold mb-2">SIGNOS VITALES</h3>
+            <div class="grid grid-cols-2 gap-4">
+                <div>
+                    <p><span class="font-bold">Presión Arterial</span>: 106 / 84 mm Hg</p>
+                    <p><span class="font-bold">Presión Arterial Media</span>: 91 / mm Hg</p>
+                </div>
+                <div>
+                    <p><span class="font-bold">Pulso</span>: 95 / x min</p>
+                    <p><span class="font-bold">Frecuencia cardiaca</span>: 95 / x min</p>
+                </div>
+                <div>
+                    <p><span class="font-bold">Saturación Oxígeno</span>: 98%</p>
+                </div>
+                <div>
+                    <p><span class="font-bold">Talla (cm)</span>: 176.6 cm</p>
+                    <p><span class="font-bold">Peso</span>: 81 Kg</p>
+                </div>
+            </div>
+        </div>
+        <div class="border border-gray-300 p-4 mb-4">
+            <h3 class="font-bold mb-2">ANTECEDENTES</h3>
+            <p><span class="font-bold">Perinatales</span>: Parto de 3er embarazo, Nacimiento prematuro. Peso al nacer 3000gr.</p>
+            <p><span class="font-bold">Patológicos</span>: Ninguno</p>
+            <p><span class="font-bold">Medicamentos</span>: Losartán 50mg todos los días.</p>
+            <p><span class="font-bold">Quirúrgicos</span>: Ninguno.</p>
+            <p><span class="font-bold">Traumáticos</span>: Ninguno.</p>
+            <p><span class="font-bold">Alergias</span>: Penicilina.</p>
+            <p><span class="font-bold">Vacunas</span>: Esquema completo.</p>
+            <p><span class="font-bold">Familiares</span>: ABUELO paterno con problemas de corazón, necesitó MARCAPASOS.</p>
+        </div>
+        <div class="border border-gray-300 p-4 mb-4">
+            <h3 class="font-bold mb-2">ÓRDENES CLÍNICAS</h3>
+            <div class="mb-4">
+                <p><strong>Responsable de orden:</strong> Juan Carlos Sainz Pico</p>
+                <p><strong>Descripción:</strong> Radiografía</p>
+            </div>
+            <hr class="border-black mb-4" />
+            <div class="mb-4">
+                <p><strong>Fecha de solicitud:</strong> 26/03/2024</p>
+                <p><strong>Hora de solicitud:</strong> 18:31</p>
+            </div>
+            <div class="mb-4">
+                <p><strong>Responsable de orden:</strong> Juan Carlos Sainz Pico</p>
+                <p><strong>Descripción:</strong> Evaluación de movilidad articular</p>
+            </div>
+            <div class="border border-black p-2 mb-4 mt-10">
+                <p class="font-bold">RESUMEN Y COMENTARIOS</p>
+                <p>
+                    Paciente con 24 años de edad, que se presenta con dolor en el tobillo derecho tras un esguince leve ocurrido hace dos semanas. A la exploración física, se observa hinchazón moderada en la región lateral del tobillo, con sensibilidad a la palpación sobre el ligamento talofibular anterior. El rango de movimiento está ligeramente limitado en dorsiflexión y eversión. No se observan signos de inestabilidad articular, pero el paciente refiere dolor al realizar maniobras de inversión forzada.
+                </p>
+            </div>
+            <div class="mb-4">
+                <p><strong>Profesional responsable:</strong> Juan Carlos Sainz Pico</p>
+            </div>
+            <div class="mb-4">
+                <p><strong>(Fin)</strong></p>
+            </div>
+        </div>
+        <div class="text-gray-600 text-sm mt-4">
+            <p>Historia Clínica – 26/03/2024</p>
+            <p>Paciente: JOHN ALEXANDER JIMÉNEZ VARGAS</p>
+            <p>C.C 100000001</p>
+        </div>
+        <!-- Los botones se ocultan al imprimir -->
+        <div class="absolute top-10 left-10 flex flex-col space-y-4 no-print">
+            <button
+                onclick="window.print()"
+                class="bg-blue-500 text-white px-4 py-2 rounded"
+            >
+                Imprimir
+            </button>
+            <button
+                onclick="console.log('Salir')"
+                class="bg-gray-500 text-white px-4 py-2 rounded"
+            >
+                Salir
+            </button>
+        </div>
+    </div>
+</body>
+</html>
