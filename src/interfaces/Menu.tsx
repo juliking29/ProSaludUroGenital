@@ -20,6 +20,8 @@ import Actualizar from '../interfacesAdmin/Actualizar';
 import AddUser from '../interfacesAdmin/Adduser';
 import UpdateUser from '../interfacesAdmin/UpdateUser';
 import MenuDoctor1 from '../usuarioInterfaces/iniciousuario';
+import Cancelar from '../interfacesOperador/Cancelar';
+import Reprogramar from '../interfacesOperador/Reprogramar';
 function Menu() {
     return (
         <Router>
@@ -45,6 +47,8 @@ function Menu() {
               <Route path="/adduseradmin" element={<AddUser />} />
               <Route path="/registroadmin" element={<RegistroUsuarios />} />
               <Route path="/updateadmin" element={<UpdateUser />} />
+              <Route path="/cancelar" element={<Cancelar />} />
+              <Route path="/reprogramar" element={<Reprogramar />} />
             </Routes>
         </Router>
       );
