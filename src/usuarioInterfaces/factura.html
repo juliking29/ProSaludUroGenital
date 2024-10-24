@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Factura</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Estilos específicos para impresión */
+        @media print {
+            .print\\:hidden {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-gray-100 p-8">
+    <div class="max-w-4xl mx-auto bg-white p-8 border border-gray-300 m-20">
+        <!-- Botones de Imprimir y Salir -->
+        <div class="absolute top-10 left-10 flex flex-col space-y-4 print:hidden">
+            <button onclick="window.print()" class="bg-blue-500 text-white px-4 py-2 rounded">
+                Imprimir
+            </button>
+            <button onclick="console.log('Salir')" class="bg-gray-500 text-white px-4 py-2 rounded">
+                Salir
+            </button>
+        </div>
+
+        <!-- Contenedor de la Factura -->
+        <div class="w-full max-w-screen-lg border border-black p-5 mb-100">
+            <!-- Encabezado -->
+            <div class="flex justify-between items-center mb-5">
+                <img alt="Logo de la Empresa" class="w-40 h-40" src="https://placehold.co/150x150" />
+                <div class="text-start flex-grow mx-5">
+                    <h1 class="text-lg font-bold">INTERVITAL</h1>
+                    <p class="text-sm">Factura Electrónica de Venta</p>
+                    <p class="text-sm">Factura No:</p>
+                    <p class="text-sm">Fecha Generación:</p>
+                    <p class="text-sm">Fecha Vencimiento:</p>
+                </div>
+                <div class="text-center mb-5 flex">
+                    <img alt="Código QR" class="w-28 h-28" src="https://placehold.co/100x100" />
+                </div>
+            </div>
+
+            <!-- Detalles -->
+            <table class="w-full mb-5 border-collapse">
+                <tbody>
+                    <tr>
+                        <td class="border border-black p-2">DIRECCION:</td>
+                        <td class="border border-black p-2">NIT:</td>
+                    </tr>
+                    <tr>
+                        <td class="border border-black p-2">TEL:</td>
+                        <td class="border border-black p-2">FORMA DE PAGO:</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <!-- Detalles del Paciente -->
+            <table class="w-full mb-5 border-collapse">
+                <tbody>
+                    <tr>
+                        <td class="border border-black p-2">PACIENTE:</td>
+                        <td class="border border-black p-2">CIUDAD:</td>
+                    </tr>
+                    <tr>
+                        <td class="border border-black p-2">CC:</td>
+                        <td class="border border-black p-2">DIRECCION:</td>
+                    </tr>
+                    <tr>
+                        <td class="border border-black p-2">TELEFONO:</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <!-- Items -->
+            <table class="w-full mb-5">
+                <thead>
+                    <tr class="bg-gray-200">
+                        <th class="border border-black p-2">ITEM</th>
+                        <th class="border border-black p-2">CODIGO</th>
+                        <th class="border border-black p-2">DESCRIPCION</th>
+                        <th class="border border-black p-2">CANTIDAD</th>
+                        <th class="border border-black p-2">VALOR UNITARIO</th>
+                        <th class="border border-black p-2">% IMP</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="border border-black p-2"></td>
+                        <td class="border border-black p-2"></td>
+                        <td class="border border-black p-2"></td>
+                        <td class="border border-black p-2"></td>
+                        <td class="border border-black p-2"></td>
+                        <td class="border border-black p-2"></td>
+                    </tr>
+                    <!-- Añadiendo nuevas filas -->
+                    <tr>
+                        <td class="border border-black p-2"></td> <!-- Nueva fila -->
+                        <td class="border border-black p-2"></td> <!-- Nueva fila -->
+                        <td class="border border-black p-2"></td> <!-- Nueva fila -->
+                        <td class="border border-black p-2"></td> <!-- Nueva fila -->
+                        <td class="border border-black p-2"></td> <!-- Nueva fila -->
+                        <td class="border border-black p-2"></td> <!-- Nueva fila -->
+                    </tr>
+                    <tr>
+                        <td class="border border-black p-2"></td> <!-- Nueva fila -->
+                        <td class="border border-black p-2"></td> <!-- Nueva fila -->
+                        <td class="border border-black p-2"></td> <!-- Nueva fila -->
+                        <td class="border border-black p-2"></td> <!-- Nueva fila -->
+                        <td class="border border-black p-2"></td> <!-- Nueva fila -->
+                        <td class="border border-black p-2"></td> <!-- Nueva fila -->
+                    </tr>
+                </tbody>
+            </table>
+
+            <!-- Total -->
+            <table class="w-full mb-5 border-collapse">
+                <tbody>
+                    <tr>
+                        <td class="border border-black p-2">VALOR TOTAL</td>
+                    </tr>
+                    <tr>
+                        <td class="border border-black p-2">$</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <!-- Medios de Pago -->
+            <table class="w-full mb-5 border-collapse">
+                <tbody>
+                    <!-- Aumento el ancho de la celda "MEDIOS DE PAGO" con colspan -->
+                    <tr>
+                        <td class="border border-black p-2  " colspan="2">MEDIOS DE PAGO</td>
+                    </tr>
+                    <tr>
+                        <td class="border border-black p-2 w-1/2">Banco</td>
+                        <td class="border border-black p-2 w-1/2">Pago online</td>
+                        
+                    </tr>
+
+                    <tr>
+                        <td class="border border-black p-2 ">$</td> <!-- Nueva fila -->
+                        <td class="border border-black p-2 ">$</td> <!-- Nueva fila -->
+                    </tr>
+
+                </tbody>
+            </table>
+
+            <!-- Pie de Página -->
+            <div class="text-center">
+                <img alt="Logo del Pie" class="w-40 h-40 m-auto" src="https://placehold.co/150x150" />
+                <p class="text-xs">Representación impresa de Factura de Venta</p>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

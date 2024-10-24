@@ -5,13 +5,14 @@ import Imagen2 from '/src/imagenes/imagen2.jpg';
 import { Link } from 'react-router-dom';
 import LOGO from '/src/imagenes/logo.png';
 import FOTO from '/src/imagenes/histclic.jpg';
+
 function InicioPagina() {
   // Lista de imágenes del carrusel
-  const images = [Bienvenida, Imagen1, Imagen2 ];
-  
+  const images = [Bienvenida, Imagen1, Imagen2];
+
   // Estado para la imagen actual del carrusel
   const [currentImage, setCurrentImage] = useState(0);
-  
+
   // Cambiar la imagen automáticamente cada 10 segundos
   useEffect(() => {
     const interval = setInterval(() => {
@@ -50,7 +51,7 @@ function InicioPagina() {
       <main className="container mx-auto p-8">
         {/* Sección de bienvenida */}
         <section className="text-center my-12">
-        <h2 className="text-4xl font-bold mb-6" style={{ color: '#1a8b9e' }}>Expertos en tu salud íntima y reproductiva</h2>
+          <h2 className="text-4xl font-bold mb-6" style={{ color: '#1a8b9e' }}>Expertos en tu salud íntima y reproductiva</h2>
           <div className="flex justify-center relative">
             <img
               src={images[currentImage]}
@@ -121,6 +122,24 @@ function InicioPagina() {
                   {value === 'COMPROMISO' && "Nos dedicamos a proporcionar la mejor atención posible, siempre buscando mejorar la salud y el bienestar de nuestros pacientes."}
                 </p>
               </div>
+            ))}
+          </div>
+        </section>
+
+        {/* Sedes (ahora como botones) */}
+        <section className="my-12">
+          <h2 className="text-3xl font-bold text-[#1a8b9e] text-center mb-6">ASOCIADOS</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {[
+              { name: 'Salud General', description: 'Brindamos servicios de atención médica general con un equipo de expertos enfocados en la prevención y tratamiento de enfermedades comunes.' },
+              { name: 'Pediatría', description: 'Contamos con especialistas en el cuidado infantil, dedicados a garantizar la salud y bienestar de los niños, desde recién nacidos hasta adolescentes.' },
+              { name: 'Salud Mental', description: 'Ofrecemos atención integral en salud mental, enfocada en la prevención, diagnóstico y tratamiento de trastornos mentales y emocionales.' },
+              { name: 'Musculoregenerativa', description: 'Servicios de musculoregeneración para pacientes que requieren tratamientos avanzados en la rehabilitación muscular.' },
+            ].map((sede, index) => (
+              <button key={index} className="bg-white rounded-lg shadow-xl p-6 hover:shadow-2xl transition duration-300 hover:animate-sway border-b-8 border-transparent hover:border-[#1a8b9e]">
+                <h3 className="text-xl font-bold text-[#1a8b9e] mb-4">{sede.name}</h3>
+                <p className="text-gray-600">{sede.description}</p>
+              </button>
             ))}
           </div>
         </section>
