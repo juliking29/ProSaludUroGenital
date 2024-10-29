@@ -1,6 +1,5 @@
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import InicioPag from './InicioPag';
-import logo from '/src/imagenes/logo.png';
 import Login from './Login';
 import RegistroUsuarios from '../interfacesAdmin/RegistroUsuarios';
 import HistoriaMedica from '../interfacesDoctor/HistoriaMedica';

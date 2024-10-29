@@ -1,36 +1,50 @@
 import React, { useState } from "react";
 import { FaChevronDown, FaSearch } from "react-icons/fa"; // Asegúrate de tener react-icons instalado
 import { Link } from "react-router-dom";
-import LOGO from '/src/imagenes/logo.png';const UpdateUser = () => {
+import LOGO from '/src/imagenes/logo.png';
+import BACKGROUND from '/src/imagenes/Actualiza.png'; // Asegúrate de que la ruta sea correcta
+
+const UpdateUser = () => {
   const [telefono, setTelefono] = useState("3001234567");
   const [nombres, setNombres] = useState("Juan");
   const [apellidos, setApellidos] = useState("Pérez");
-  const [correo, setCorreo] = useState("juan.perez@example.com");
+  const [correo, setCorreo] = useState("juan.perez@gmail.com");
   const [identificacion, setIdentificacion] = useState("123456789");
   const [tipoUsuario, setTipoUsuario] = useState("paciente");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [errorTelefono, setErrorTelefono] = useState("");
-  const [isCitasMenuOpen, setCitasMenuOpen] = useState(false);
-  const [isUserMenuOpen, setUserMenuOpen] = useState(false);
+  const [errorPassword, setErrorPassword] = useState(""); // Para mostrar error si las contraseñas no coinciden
+  const [loading, setLoading] = useState(false); // Estado para manejar la animación de carga
+  const [successMessage, setSuccessMessage] = useState(""); // Estado para el mensaje de éxito
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    // Validación para el número de teléfono
     if (telefono.length !== 10) {
       setErrorTelefono("Debe tener exactamente 10 dígitos.");
+      return;
     } else {
       setErrorTelefono("");
-      // Aquí puedes procesar el formulario, por ejemplo enviarlo a la API
-      console.log("Formulario actualizado con éxito");
     }
-  };
 
-  const toggleCitasMenu = () => {
-    setCitasMenuOpen(!isCitasMenuOpen);
-  };
+    // Validación para la confirmación de la contraseña
+    if (password !== confirmPassword) {
+      setErrorPassword("Las contraseñas no coinciden.");
+      return;
+    } else {
+      setErrorPassword("");
+    }
 
-  const toggleUserMenu = () => {
-    setUserMenuOpen(!isUserMenuOpen);
+    // Si todo está correcto, iniciar el proceso de actualización
+    setLoading(true); // Activar animación de carga
+
+    // Simular una actualización exitosa después de 2 segundos
+    setTimeout(() => {
+      setLoading(false); // Desactivar la animación de carga
+      setSuccessMessage("Actualización exitosa"); // Mostrar mensaje de éxito
+    }, 2000);
   };
 
   return (
@@ -42,10 +56,11 @@ import LOGO from '/src/imagenes/logo.png';const UpdateUser = () => {
           <span className="text-white text-lg font-bold">ProSalud UroGénica S.A.</span>
         </div>
         <nav className="flex space-x-8">
-        <Link to="/" className="text-white text-lg font-bold">Inicio</Link>
-          <Link to="/agendar" className="text-white text-lg font-bold">Agendar Cita </Link>
-          <Link to="/historial" className="text-white text-lg font-bold">Historial Citas </Link>
-          <Link to="/contacto" className="text-white text-lg font-bold">Contactanos</Link>
+          <Link to="/" className="text-white text-lg font-bold">Inicio</Link>
+          {/* Nuevas opciones en el header */}
+          <Link to="/add-user" className="text-white text-lg font-bold">Añadir Usuario</Link>
+          <Link to="/delete-user" className="text-white text-lg font-bold">Eliminar Usuario</Link>
+          <Link to="/update-user" className="text-white text-lg font-bold">Actualizar Usuario</Link>
         </nav>
       </header>
 
@@ -55,13 +70,13 @@ import LOGO from '/src/imagenes/logo.png';const UpdateUser = () => {
         <div
           className="relative w-1/3 bg-cover bg-center mr-8"
           style={{
-            backgroundImage: "url('https://placehold.co/600x400')",
+            backgroundImage: `url(${BACKGROUND})`, // Usando la imagen de fondo Actualiza.png
           }}
         >
           <div className="absolute inset-0 bg-black bg-opacity-50 flex flex-col justify-center items-center text-center text-white p-8">
             <h2 className="text-4xl font-bold">ACTUALIZACIÓN DE INFORMACIÓN</h2>
             <p className="mt-4">
-              Actualiza tus datos para mantener tu información al día.
+              Actualiza los datos para mantener la información al día.
             </p>
           </div>
         </div>
@@ -69,6 +84,13 @@ import LOGO from '/src/imagenes/logo.png';const UpdateUser = () => {
         {/* Formulario */}
         <div className="w-2/3 bg-gray-100 p-8 space-y-6">
           <form className="grid grid-cols-2 gap-4" onSubmit={handleSubmit}>
+            {/* Mostrar mensaje de éxito */}
+            {successMessage && (
+              <div className="col-span-2 text-green-500 text-lg font-semibold">
+                {successMessage}
+              </div>
+            )}
+
             <div>
               <label className="block">Nombres*</label>
               <input
@@ -153,14 +175,22 @@ import LOGO from '/src/imagenes/logo.png';const UpdateUser = () => {
                 onChange={(e) => setConfirmPassword(e.target.value)}
                 required
               />
+              {errorPassword && <p className="text-red-500">{errorPassword}</p>}
             </div>
             <div className="col-span-2">
-              <button
-                type="submit"
-                className="w-full bg-teal-700 text-white p-2 rounded"
-              >
-                Actualizar
-              </button>
+              {loading ? (
+                <div className="flex items-center justify-center">
+                  <div style={{ borderTopColor: "transparent" }} className="w-8 h-8 border-4 border-teal-500 rounded-full animate-spin"></div>
+                  <p className="ml-2">Actualizando...</p>
+                </div>
+              ) : (
+                <button
+                  type="submit"
+                  className="w-full bg-teal-700 text-white p-2 rounded"
+                >
+                  Actualizar
+                </button>
+              )}
             </div>
           </form>
         </div>

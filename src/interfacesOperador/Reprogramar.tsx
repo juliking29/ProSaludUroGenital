@@ -13,13 +13,14 @@ const Reprogramar = () => {
     tipoCita: "General",
     numeroTelefonico: "3133333058",
     numeroIdentificacion: "123456789",
-    correo: "alvaro@example.com",
+    correo: "alvaro@gmail.com",
     especialista: "Ginecologo",
     fecha: "",
     hora: ""
   });
 
   const [loading, setLoading] = useState(false); // Estado para manejar el estado de carga
+  const [successMessage, setSuccessMessage] = useState(""); // Estado para el mensaje de éxito
 
   // Manejar el cambio de fecha y hora
   const handleInputChange = (e) => {
@@ -37,7 +38,7 @@ const Reprogramar = () => {
     // Simular una demora de 3 segundos antes de completar la reprogramación
     setTimeout(() => {
       setLoading(false); // Desactivar la animación de carga
-      alert('Cita reprogramada con éxito'); // Muestra una alerta después de la carga
+      setSuccessMessage('Cita reprogramada con éxito'); // Mostrar mensaje de éxito
     }, 3000); // 3 segundos
   };
 
@@ -53,6 +54,7 @@ const Reprogramar = () => {
           <Link to="/" className="text-white text-lg font-bold">Inicio</Link>
           <Link to="/agendar" className="text-white text-lg font-bold">Agendar Cita</Link>
           <Link to="/historial" className="text-white text-lg font-bold">Historial Citas</Link>
+          <Link to="/cancelar-reprogramar" className="text-white text-lg font-bold">Cancelar/Reprogramar Cita</Link> {/* Nueva opción en el header */}
           <Link to="/contacto" className="text-white text-lg font-bold">Contactanos</Link>
         </nav>
       </header>
@@ -76,6 +78,13 @@ const Reprogramar = () => {
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className="grid grid-cols-2 gap-4">
+                  {/* Mostrar mensaje de éxito */}
+                  {successMessage && (
+                    <div className="col-span-2 text-green-500 text-lg font-semibold">
+                      {successMessage}
+                    </div>
+                  )}
+
                   {/* Campos prellenados (no modificables) */}
                   <div className="col-span-1">
                     <label className="block text-sm font-medium text-gray-700">Identificador*</label>

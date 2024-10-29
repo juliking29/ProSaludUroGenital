@@ -1,15 +1,18 @@
 import React, { useState } from "react";
 import { FaSearch } from "react-icons/fa";
-import LOGO from '/src/imagenes/logo.png';
+import LOGO from '../imagenes/logo.png'; // Ajuste de ruta relativa para el logo
+import DOC1 from '../imagenes/DoctorAlvarez.png'; // Ajuste de ruta relativa para Doctor Alvarez
+import DOC2 from '../imagenes/Alvaro.png'; // Ajuste de ruta relativa para Alvaro
+import DOC3 from 'C:/Users/57314/Desktop/Downloads/Proyecto/ProSaludUroGenital/src/imagenes/Monserate.png'; // Ajuste de ruta relativa para Monserrate
 import { Link } from "react-router-dom";
 
 const Cancelar = () => {
   const [searchTerm, setSearchTerm] = useState("");
 
   const citas = [
-    { id: "#278934", doctor: "Dr. Monserrate", especialidad: "Cardiologo", fecha: "12/10/2024", hora: "14:00 p.m" },
-    { id: "#208789", doctor: "Dr. Carvajal", especialidad: "Optetra", fecha: "24/10/2024", hora: "09:00 a.m" },
-    { id: "#208907", doctor: "Dr. Martinez", especialidad: "Hepatología", fecha: "26/10/2024", hora: "10:00 a.m" },
+    { id: "#278934", doctor: "Dr. Monserrate", especialidad: "Ginecólogo", fecha: "15/11/2024", hora: "14:00 p.m", imagen: DOC3 }, 
+    { id: "#208789", doctor: "Dr. Pineda", especialidad: "Optetra", fecha: "18/11/2024", hora: "09:00 a.m", imagen: DOC2 }, 
+    { id: "#208907", doctor: "Dr. Martinez", especialidad: "Hepatología", fecha: "22/11/2024", hora: "10:00 a.m", imagen: DOC1 }, 
   ];
 
   return (
@@ -24,6 +27,7 @@ const Cancelar = () => {
           <Link to="/" className="text-white text-lg font-bold">Inicio</Link>
           <Link to="/agendar" className="text-white text-lg font-bold">Agendar Cita</Link>
           <Link to="/historial" className="text-white text-lg font-bold">Historial Citas</Link>
+          <Link to="/cancelar-reprogramar" className="text-white text-lg font-bold">Cancelar/Reprogramar Cita</Link>
           <Link to="/contacto" className="text-white text-lg font-bold">Contactanos</Link>
         </nav>
       </header>
@@ -48,11 +52,11 @@ const Cancelar = () => {
           {/* Citas */}
           {citas.map((cita, index) => (
             <div key={index} className="bg-white p-4 mb-6 rounded-lg shadow-lg flex items-center">
-              {/* Imagen placeholder */}
+              {/* Imagen del doctor */}
               <div className="w-24 h-24 bg-gray-200 rounded-full flex items-center justify-center">
                 <img
-                  src="https://placehold.co/100x100"
-                  alt="Doctor"
+                  src={cita.imagen}
+                  alt={cita.doctor}
                   className="w-full h-full rounded-full"
                 />
               </div>
@@ -67,9 +71,11 @@ const Cancelar = () => {
                 <button className="bg-red-500 text-white px-4 py-2 rounded-md hover:bg-red-600">
                   Cancelar
                 </button>
-                <button className="bg-orange-400 text-white px-4 py-2 rounded-md hover:bg-orange-500">
-                  Reprogramar
-                </button>
+                <Link to="/reprogramar">
+                  <button className="bg-orange-400 text-white px-4 py-2 rounded-md hover:bg-orange-500">
+                    Reprogramar
+                  </button>
+                </Link>
               </div>
             </div>
           ))}
